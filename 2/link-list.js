@@ -1,41 +1,38 @@
-var listedNode = /** @class */ (function () {
-    function listedNode(data, next) {
-        if (next === void 0) { next = null; }
+class listedNode {
+    constructor(data, next = null) {
         this.data = data;
         this.next = next;
     }
-    return listedNode;
-}());
-var Stack = /** @class */ (function () {
-    function Stack() {
+}
+class Stack {
+    constructor() {
         this.length = 0;
         this.top = null;
     }
-    Stack.prototype.isEmpty = function () {
+    isEmpty() {
         return this.top === null;
-    };
-    Stack.prototype.push = function (value) {
+    }
+    push(value) {
         ++this.length;
         if (this.isEmpty()) {
             this.top = new listedNode(value);
         }
         else {
-            var node = new listedNode(value);
+            const node = new listedNode(value);
             node.next = this.top;
             this.top = node;
         }
-    };
-    Stack.prototype.pop = function () {
+    }
+    pop() {
         --this.length;
-        var result = this.top;
+        const result = this.top;
         this.top = this.top.next;
         return result.data;
-    };
-    Stack.prototype.size = function () {
+    }
+    size() {
         return this.length;
-    };
-    return Stack;
-}());
+    }
+}
 // const myStack2: lietedStack<number> = {
 //     isEmpty: (): boolean => true,
 //     push: (value: number): void => {
@@ -45,7 +42,7 @@ var Stack = /** @class */ (function () {
 //     },
 //     size: (): number => 1
 // }
-var myStack = new Stack();
+const myStack = new Stack();
 console.log(myStack);
 myStack.push(1);
 console.log(myStack);

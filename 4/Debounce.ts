@@ -18,6 +18,8 @@ function ShowScrollY(x: string = 'data: '): void {
 
 /** test */
 
+/** 使用 Event Loop 結合實際操作範例擇一敘述 Debounce 或 Throttle 的運
+作方式 */
 // 有用debounce
 // window.addEventListener('scroll', debounce(ShowScrollY, 500));
 window.addEventListener('scroll', debounce((data = 'data: ') => ShowScrollY(data), 500));
